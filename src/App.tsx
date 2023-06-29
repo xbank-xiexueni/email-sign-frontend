@@ -1,5 +1,4 @@
-import { Button, Image } from 'antd';
-import icon from './assets/react.svg';
+import { Button } from 'antd';
 import * as clipboard from 'clipboard-polyfill';
 
 const App = () => {
