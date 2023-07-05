@@ -16,7 +16,6 @@ export const GREET_DATA = {
 
 export const SINNO_INITIAL_DATA = {
   zh: {
-    lang: 'zh',
     nameEn: 'Albert',
     nameZh1: '王',
     nameZh2: '大锤',
@@ -28,7 +27,6 @@ export const SINNO_INITIAL_DATA = {
     address: '广东省 中山市 翠亨新区南朗华南现代中医药城 林湖路1号 4F 产品部',
   },
   en: {
-    lang: 'zh',
     nameEn: 'Albert',
     nameZh1: '王',
     nameZh2: '大锤',
@@ -44,7 +42,6 @@ export const SINNO_INITIAL_DATA = {
 
 export const MINNOCOS_INITIAL_DATA = {
   zh: {
-    lang: 'zh',
     nameEn: 'Vivian',
     nameZh1: '耿',
     nameZh2: '迪',
@@ -56,7 +53,6 @@ export const MINNOCOS_INITIAL_DATA = {
     address: '上海市 奉贤区 奉浦街道 环城北路1099号 8栋',
   },
   en: {
-    lang: 'zh',
     nameEn: 'Vivian',
     nameZh1: '耿',
     nameZh2: '迪',

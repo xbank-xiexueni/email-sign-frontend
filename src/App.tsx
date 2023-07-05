@@ -78,13 +78,40 @@ const App = () => {
   useEffect(() => {
     form?.setFieldsValue(formData);
   }, [formData, form]);
+  const isDisabled = useMemo(() => {
+    if (!formData) return true;
+    const {
+      nameEn,
+      nameZh1,
+      nameZh2,
+      profession,
+      phone,
+      tel1,
+      tel2,
+      email,
+      address,
+      privacy,
+    } = formData;
+    return (
+      !nameEn &&
+      !nameZh1 &&
+      !nameZh2 &&
+      !profession &&
+      !phone &&
+      !tel1 &&
+      !tel2 &&
+      !email &&
+      !address &&
+      !privacy
+    );
+  }, [formData]);
 
   return (
     <div
       style={{
         width: '100%',
         display: 'flex',
-        height: '100vh',
+        minHeight: '100vh',
         alignItems: 'center',
         justifyContent: 'center',
         background: 'gray',
@@ -476,7 +503,7 @@ const App = () => {
                         }}
                       >
                         {/* 左边 */}
-                        <div>
+                        <div hidden={isDisabled}>
                           <div>
                             {formData?.nameZh1 && (
                               <span
@@ -686,7 +713,7 @@ const App = () => {
                   setDom(mailDom);
                   setStep(2);
                 }}
-                style={{}}
+                disabled={isDisabled}
               >
                 生成签名
               </Button>
