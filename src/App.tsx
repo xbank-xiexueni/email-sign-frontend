@@ -278,7 +278,17 @@ const App = () => {
                     />
                   </div>
                   {/* 英文名 */}
-                  <Form.Item name={'nameEn'} style={{ marginBottom: '20px' }}>
+                  <Form.Item
+                    name={'nameEn'}
+                    style={{ marginBottom: '20px' }}
+                    // rules={[
+                    //   {
+                    //     required: true,
+                    //     message: '请输入',
+                    //     warningOnly: true,
+                    //   },
+                    // ]}
+                  >
                     <Input placeholder='英文昵称' />
                   </Form.Item>
                   {/* 中文名 */}
@@ -308,6 +318,13 @@ const App = () => {
                         marginBottom: '20px',
                       }}
                       name={'nameZh2'}
+                      // rules={[
+                      //   {
+                      //     required: true,
+                      //     message: '请输入',
+                      //     warningOnly: true,
+                      //   },
+                      // ]}
                     >
                       <Input placeholder='名' />
                     </Form.Item>
@@ -354,7 +371,17 @@ const App = () => {
                       <Input placeholder='固话号码' />
                     </Form.Item>
                   </Form.Item>
-                  <Form.Item name={'email'} style={{ marginBottom: '20px' }}>
+                  <Form.Item
+                    name={'email'}
+                    style={{ marginBottom: '20px' }}
+                    rules={[
+                      {
+                        type: 'email',
+                        message: '无效输入',
+                        warningOnly: true,
+                      },
+                    ]}
+                  >
                     <Input placeholder='邮箱' />
                   </Form.Item>
                   <Form.Item name={'address'} style={{ marginBottom: '20px' }}>
@@ -499,11 +526,12 @@ const App = () => {
                           width: '426px',
                           padding: '12px',
                           flexWrap: 'nowrap',
-                          alignItems: 'center',
+                          alignItems:
+                            tabKey === TAB_KEY.SINNO ? 'center' : 'stretch',
                         }}
                       >
                         {/* 左边 */}
-                        <div hidden={isDisabled}>
+                        <div hidden={isDisabled} style={{ width: '270px' }}>
                           <div>
                             {formData?.nameZh1 && (
                               <span
@@ -588,7 +616,7 @@ const App = () => {
                                   src={getImageUrl(
                                     tabKey === TAB_KEY.SINNO
                                       ? '/dot-sinno.png'
-                                      : 'dot-minnocos.png'
+                                      : '/dot-minnocos.png'
                                   )}
                                   width={6}
                                 />
@@ -669,6 +697,8 @@ const App = () => {
                                 display: 'flex',
                                 flexDirection: 'column',
                                 justifyContent: 'space-between',
+                                height: '100%',
+                                alignItems: 'center',
                               }}
                             >
                               <img
@@ -688,7 +718,7 @@ const App = () => {
                           style={{
                             padding: 8,
                             marginTop: 16,
-                            fontSize: '7px',
+                            fontSize: '12px',
                             color: '#B3B3B3',
                             width: '442px',
                             whiteSpace: 'pre-line',
@@ -696,11 +726,32 @@ const App = () => {
                             borderColor: 'rgba(217, 223, 228, 0.60)',
                             borderWidth: 1,
                             borderStyle: 'solid',
+                            height: '116px',
                           }}
                         >
-                          <div>{PRIVACTY_DATA['zh']}</div>
-                          {'\n'}
-                          <div>{PRIVACTY_DATA['en']}</div>
+                          <div
+                            style={{
+                              transform: 'scale(0.58)',
+                              transformOrigin: 'left top',
+                              width: '150%',
+                            }}
+                          >
+                            <div style={{ fontWeight: 600 }}>保密声明：</div>
+                            {PRIVACTY_DATA['zh']}
+                          </div>
+                          <div
+                            style={{
+                              transform: 'scale(0.58)',
+                              transformOrigin: 'left top',
+                              width: '150%',
+                              marginTop: '-20px',
+                            }}
+                          >
+                            <div style={{ fontWeight: 600 }}>
+                              CONFIDENTIALITY NOTICE:
+                            </div>
+                            {PRIVACTY_DATA['en']}
+                          </div>
                         </div>
                       )}
                     </div>
