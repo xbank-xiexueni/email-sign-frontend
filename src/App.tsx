@@ -7,6 +7,7 @@ import {
   Switch,
   Image,
   Divider,
+  message,
 } from 'antd';
 import * as clipboard from 'clipboard-polyfill';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -39,20 +40,23 @@ const App = () => {
   const [step, setStep] = useState(1);
   const [tabKey, setTabKey] = useState<TAB_KEY>(TAB_KEY.SINNO);
   const [lang, setLang] = useState<'en' | 'zh'>('zh');
-
+  const [messageApi] = message.useMessage();
   const onFormChange = useCallback((value: any) => {
     setFormData((prev: any) => ({ ...prev, ...value }));
   }, []);
 
   const onCopy = useCallback(async () => {
-    console.log(dom, 'aa');
     if (!dom) return;
     // const item = new clipboard.ClipboardItem({
     //   'text/html': new Blob([dom], { type: 'text/html' }),
     // });
     await clipboard.writeText(dom);
+    messageApi.open({
+      type: 'success',
+      content: 'copy successfully!',
+    });
     // await clipboard.write([item]);
-  }, [dom]);
+  }, [dom, messageApi]);
 
   const initialData = useMemo(() => {
     if (tabKey === TAB_KEY.SINNO) {
