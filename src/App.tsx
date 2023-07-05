@@ -47,9 +47,9 @@ const App = () => {
   const onCopy = useCallback(async () => {
     console.log(dom, 'aa');
     if (!dom) return;
-    const item = new clipboard.ClipboardItem({
-      'text/html': new Blob([dom], { type: 'text/html' }),
-    });
+    // const item = new clipboard.ClipboardItem({
+    //   'text/html': new Blob([dom], { type: 'text/html' }),
+    // });
     await clipboard.writeText(dom);
     // await clipboard.write([item]);
   }, [dom]);
