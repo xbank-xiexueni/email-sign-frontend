@@ -69,8 +69,8 @@ export const MINNOCOS_INITIAL_DATA = {
   },
 };
 
-export const SINNO_URL = 'www.sinnolab.com';
-export const MINNOCOS_UR = 'www.minnocos.com';
+export const SINNO_URL = 'https://www.sinnolab.com';
+export const MINNOCOS_UR = 'https://www.minnocos.com';
 
 export const PRIVACTY_DATA = {
   zh: '保密声明：\n此文件中可能含有机密类信息，仅限于上方提到的人员使用。若非以上人员或负责将该信息传送给上述人员的职员或代理人，严禁对此文件作任何形式的汇报、散布、传播及复制。若非此文件的指定收件人，请立即以邮件形式联系发件人并销毁所有原始文件的拷贝。',
