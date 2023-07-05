@@ -40,12 +40,13 @@ const App = () => {
   const [step, setStep] = useState(1);
   const [tabKey, setTabKey] = useState<TAB_KEY>(TAB_KEY.SINNO);
   const [lang, setLang] = useState<'en' | 'zh'>('zh');
-  const [messageApi] = message.useMessage();
+  const [messageApi, contextHolder] = message.useMessage();
   const onFormChange = useCallback((value: any) => {
     setFormData((prev: any) => ({ ...prev, ...value }));
   }, []);
 
   const onCopy = useCallback(async () => {
+    console.log(dom, 'aa');
     if (!dom) return;
     // const item = new clipboard.ClipboardItem({
     //   'text/html': new Blob([dom], { type: 'text/html' }),
@@ -90,6 +91,7 @@ const App = () => {
       }}
       id='app'
     >
+      {contextHolder}
       <div
         style={{
           width: '100%',
