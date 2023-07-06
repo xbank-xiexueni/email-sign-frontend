@@ -9,7 +9,7 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
     <ConfigProvider
       theme={{
         token: {
-          fontFamily: 'Montserrat, sans-serif',
+          fontFamily: 'Alibaba-PuHuiTi-Regular',
         },
       }}
     >

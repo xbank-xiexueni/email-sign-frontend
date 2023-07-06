@@ -31,7 +31,34 @@ enum TAB_KEY {
 
 // 因为需要特殊的字体，所以需要加载字体文件
 const getHTMLStr = (body: string) => {
-  return `<html><head><style>@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');* { margin: 0; padding: 0; font-family: 'Montserrat',sans-serif;}</style></head><body>${body}</body></html>`;
+  return `<html>
+  <head>
+    <style>
+      <style> @font-face {
+        font-family: AlibabaPuHuiTi-2-55-Regular;
+        src: url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.eot)
+            format('embedded-opentype'),
+          url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.otf)
+            format('opentype'),
+          url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.ttf)
+            format('TrueType'),
+          url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.woff)
+            format('woff'),
+          url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.woff2)
+            format('woff2');
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: AlibabaPuHuiTi-2-55-Regular, sans-serif;
+      }
+    </style>
+  </head>
+  <body>
+    ${body}
+  </body>
+</html>
+`;
 };
 const getImageUrl = (src: string) => {
   return `${window?.location?.origin}${src}`;
@@ -199,7 +226,9 @@ const App = () => {
                       fill='white'
                     />
                   </svg>
-                  <span style={{ fontSize: '14px' }}>中研</span>
+                  <span style={{ fontSize: '14px', fontWeight: '400' }}>
+                    中研
+                  </span>
                 </div>
                 <div
                   style={{
@@ -242,6 +271,7 @@ const App = () => {
                   <span
                     style={{
                       fontSize: '14px',
+                      fontWeight: '400',
                     }}
                   >
                     明色
@@ -268,7 +298,11 @@ const App = () => {
                       marginBottom: 24,
                     }}
                   >
-                    <span>请输入您的签名信息</span>
+                    <span
+                      style={{ color: '#333', fontWeight: 400, fontSize: 16 }}
+                    >
+                      请输入您的签名信息
+                    </span>
                     <Switch
                       size='small'
                       checkedChildren='EN'
@@ -541,6 +575,7 @@ const App = () => {
                                   fontSize: '24px',
                                   fontWeight: 800,
                                   color: '#333',
+                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                 }}
                               >
                                 {formData.nameZh1}
@@ -548,21 +583,35 @@ const App = () => {
                             )}
                             {formData?.nameZh2 && (
                               <span
-                                style={{ fontSize: '24px', fontWeight: 800 }}
+                                style={{
+                                  fontSize: '24px',
+                                  fontWeight: 800,
+                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                }}
                               >
                                 &nbsp;{formData.nameZh2}
                               </span>
                             )}
                             {formData?.nameEn && (
                               <span
-                                style={{ fontSize: '12px', fontWeight: 400 }}
+                                style={{
+                                  fontSize: '12px',
+                                  fontWeight: 400,
+                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                }}
                               >
                                 &nbsp;{formData.nameEn}
                               </span>
                             )}
                           </div>
                           {formData?.profession && (
-                            <div style={{ fontSize: '14px', color: '#737373' }}>
+                            <div
+                              style={{
+                                fontSize: '14px',
+                                color: '#737373',
+                                fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                              }}
+                            >
                               {formData.profession}
                             </div>
                           )}
@@ -573,6 +622,7 @@ const App = () => {
                                   fontSize: '13px',
                                   color: '#737373',
                                   marginBottom: 4,
+                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                 }}
                               >
                                 <img
@@ -592,6 +642,7 @@ const App = () => {
                                   fontSize: '13px',
                                   color: '#737373',
                                   marginBottom: 4,
+                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                 }}
                               >
                                 <img
@@ -612,6 +663,7 @@ const App = () => {
                                 style={{
                                   fontSize: '13px',
                                   color: '#737373',
+                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                 }}
                               >
                                 <img
@@ -622,7 +674,7 @@ const App = () => {
                                   )}
                                   width={6}
                                 />
-                                <span>&nbsp;+{formData?.email}</span>
+                                <span>&nbsp;{formData?.email}</span>
                               </div>
                             )}
                             {formData?.address && (
@@ -631,6 +683,7 @@ const App = () => {
                                   marginTop: '16px',
                                   color: '#737373',
                                   fontSize: '11px',
+                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                 }}
                               >
                                 {formData.address}
@@ -646,6 +699,7 @@ const App = () => {
                                       textDecoration: 'none',
                                       fontSize: '11px',
                                       opacity: 0.7,
+                                      fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                     }}
                                   >
                                     <span>
@@ -729,6 +783,7 @@ const App = () => {
                             borderWidth: 1,
                             borderStyle: 'solid',
                             height: '116px',
+                            fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                           }}
                         >
                           <div
@@ -779,7 +834,6 @@ const App = () => {
           <div
             style={{
               padding: '20px',
-              fontFamily: 'Montserrat, sans-serif',
               color: '#333',
             }}
           >
@@ -852,7 +906,7 @@ const App = () => {
                 style={{
                   color: '#737373',
                   fontSize: '15px',
-                  fontWeight: 300,
+                  fontFamily: 'AlibabaPuHuiTi-2-45-Light',
                 }}
               >
                 1. 打开腾讯
@@ -869,7 +923,7 @@ const App = () => {
                 style={{
                   color: '#737373',
                   fontSize: '15px',
-                  fontWeight: 300,
+                  fontFamily: 'AlibabaPuHuiTi-2-45-Light',
                 }}
               >
                 2. 在设置界面中，在常规中下拉，找到个性签名，点击
@@ -879,7 +933,7 @@ const App = () => {
                 style={{
                   color: '#737373',
                   fontSize: '15px',
-                  fontWeight: 300,
+                  fontFamily: 'AlibabaPuHuiTi-2-45-Light',
                 }}
               >
                 3. 在弹窗右上角，点击
@@ -890,7 +944,7 @@ const App = () => {
                 style={{
                   color: '#737373',
                   fontSize: '15px',
-                  fontWeight: 300,
+                  fontFamily: 'AlibabaPuHuiTi-2-45-Light',
                 }}
               >
                 4.
@@ -901,7 +955,7 @@ const App = () => {
                 style={{
                   color: '#737373',
                   fontSize: '15px',
-                  fontWeight: 300,
+                  fontFamily: 'AlibabaPuHuiTi-2-45-Light',
                 }}
               >
                 5. 最后检查最终效果，如不满意请重新设置您的签名。
