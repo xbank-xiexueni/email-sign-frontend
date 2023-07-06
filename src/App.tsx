@@ -29,6 +29,10 @@ enum TAB_KEY {
   MINNOCOS,
 }
 
+// 因为需要特殊的字体，所以需要加载字体文件
+const getHTMLStr = (body: string) => {
+  return `<html><head><style>@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');* { margin: 0; padding: 0; font-family: 'Montserrat',sans-serif;}</style></head><body>${body}</body></html>`;
+};
 const getImageUrl = (src: string) => {
   return `${window?.location?.origin}${src}`;
 };
@@ -51,7 +55,7 @@ const App = () => {
     // const item = new clipboard.ClipboardItem({
     //   'text/html': new Blob([dom], { type: 'text/html' }),
     // });
-    await clipboard.writeText(dom);
+    await clipboard.writeText(getHTMLStr(dom));
     messageApi.open({
       type: 'success',
       content: 'copy successfully!',
@@ -90,7 +94,6 @@ const App = () => {
       tel2,
       email,
       address,
-      privacy,
     } = formData;
     return (
       !nameEn &&
@@ -101,8 +104,7 @@ const App = () => {
       !tel1 &&
       !tel2 &&
       !email &&
-      !address &&
-      !privacy
+      !address
     );
   }, [formData]);
 
@@ -777,8 +779,9 @@ const App = () => {
           <div
             style={{
               padding: '20px',
+              fontFamily: 'Montserrat, sans-serif',
+              color: '#333',
             }}
-            hidden={step !== 2}
           >
             <div
               style={{

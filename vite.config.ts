@@ -7,8 +7,12 @@ export default defineConfig({
   server: {},
   css: {
     preprocessorOptions: {
+      modifyVars: {
+        
+      },
       less: {
         javascriptEnabled: true,
+      
       },
     },
   },
