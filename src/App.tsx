@@ -799,7 +799,7 @@ const App = () => {
                             style={{
                               transform: 'scale(0.58)',
                               transformOrigin: 'left top',
-                              width: '150%',
+                              width: '165%',
                             }}
                           >
                             <div style={{ fontWeight: 600 }}>保密声明：</div>
@@ -809,8 +809,8 @@ const App = () => {
                             style={{
                               transform: 'scale(0.58)',
                               transformOrigin: 'left top',
-                              width: '150%',
-                              marginTop: '-20px',
+                              width: '165%',
+                              marginTop: '-10px',
                             }}
                           >
                             <div style={{ fontWeight: 600 }}>
