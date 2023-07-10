@@ -461,7 +461,7 @@ const App = () => {
                   justifyContent: 'center',
                 }}
               >
-                <Image src={ImgSinnoFooter} height={'40px'} />
+                <Image src={ImgSinnoFooter} height={'40px'} preview={false} />
               </div>
             </Sider>
             <Content
@@ -675,15 +675,23 @@ const App = () => {
                                   fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                 }}
                               >
-                                <img
-                                  src={getImageUrl(
-                                    tabKey === TAB_KEY.SINNO
-                                      ? '/dot-sinno.png'
-                                      : '/dot-minnocos.png'
-                                  )}
-                                  width={6}
-                                />
-                                <span>&nbsp;{formData?.email}</span>
+                                <a
+                                  // href='mailto:help@xbank.plus'
+                                  style={{
+                                    color: '#737373',
+                                    textDecoration: 'none',
+                                  }}
+                                >
+                                  <img
+                                    src={getImageUrl(
+                                      tabKey === TAB_KEY.SINNO
+                                        ? '/dot-sinno.png'
+                                        : '/dot-minnocos.png'
+                                    )}
+                                    width={6}
+                                  />
+                                  <span>&nbsp;{formData?.email}</span>
+                                </a>
                               </div>
                             )}
                             {formData?.address && (
@@ -922,6 +930,7 @@ const App = () => {
                 <a
                   href='https://exmail.qq.com/'
                   style={{ fontWeight: 500, color: '#737373' }}
+                  target='_blank'
                 >
                   企业邮箱️
                 </a>
