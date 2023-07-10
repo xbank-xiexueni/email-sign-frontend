@@ -676,11 +676,12 @@ const App = () => {
                                 }}
                               >
                                 <a
-                                  href='mailto:'
+                                  href='https://exmail.qq.com/login'
                                   style={{
                                     color: '#737373',
                                     textDecoration: 'none',
                                   }}
+                                  target='_blank'
                                 >
                                   <img
                                     src={getImageUrl(
