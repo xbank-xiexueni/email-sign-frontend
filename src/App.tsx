@@ -151,18 +151,21 @@ const App = () => {
   };
 
   const checkPhone = (_: any, value: any, callback: any) => {
-    const reg = '^1[0-9]{10}$'; //手机号码验证regEx:第一位数字必须是1，11位数字
-    const re = new RegExp(reg);
+    // const reg = '^1[0-9]{10}$'; //手机号码验证regEx:第一位数字必须是1，11位数字
+    // const re = new RegExp(reg);
     // 去掉空格
     const trueVal = value.replace(/\s*/g, '');
     if (!trueVal) {
       callback('请输入您的手机号');
       return;
     }
-    if (!re.test(trueVal)) {
-      callback('请输入正确的电话号码');
-      return;
-    }
+    // if (!re.test(trueVal)) {
+    //   callback({
+    //     message: '请输入正确的电话s号码',
+    //     warningOnly: true,
+    //   });
+    //   return;
+    // }
     callback();
   };
 
