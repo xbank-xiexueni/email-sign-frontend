@@ -160,10 +160,7 @@ const App = () => {
       return;
     }
     if (!re.test(trueVal)) {
-      callback({
-        message: '请输入正确的电话s号码',
-        warningOnly: true,
-      });
+      callback('请输入正确的电话号码');
       return;
     }
     callback();
