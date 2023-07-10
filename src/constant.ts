@@ -44,9 +44,9 @@ export const SINNO_INITIAL_DATA = {
 
 export const MINNOCOS_INITIAL_DATA = {
   zh: {
-    nameEn: 'Vivian',
-    nameZh1: '耿',
-    nameZh2: '迪',
+    nameEn: 'Albert',
+    nameZh1: '王',
+    nameZh2: '大锤',
     profession: '产品部',
     phone: '123 1234 1234',
     tel1: undefined,
@@ -56,9 +56,9 @@ export const MINNOCOS_INITIAL_DATA = {
     privacy: false,
   },
   en: {
-    nameEn: 'Vivian',
-    nameZh1: '耿',
-    nameZh2: '迪',
+    nameEn: 'Albert',
+    nameZh1: '王',
+    nameZh2: '大锤',
     profession: 'Product Department',
     phone: '123 1234 1234',
     tel1: undefined,
