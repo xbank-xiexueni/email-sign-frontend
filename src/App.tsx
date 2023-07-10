@@ -408,7 +408,7 @@ const App = () => {
                     <Form.Item
                       style={{
                         display: 'inline-block',
-                        width: 'calc(72% - 8px)',
+                        width: 'calc(72%)',
                         marginBottom: '20px',
                       }}
                       name={'nameZh2'}
@@ -490,7 +490,7 @@ const App = () => {
                     <Form.Item
                       style={{
                         display: 'inline-block',
-                        width: 'calc(72% - 8px)',
+                        width: 'calc(72%)',
                         marginBottom: '20px',
                       }}
                       rules={[
