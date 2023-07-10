@@ -212,7 +212,7 @@ const App = () => {
         <Layout
           hasSider
           style={{
-            transition: 'all 0.5s',
+            transition: 'all 0.3s',
             opacity: step === 1 ? 1 : 0,
             display: step1Display,
           }}
@@ -987,7 +987,7 @@ const App = () => {
                 setTimeout(() => {
                   setStep1Display('none');
                   setStep2Display('block');
-                }, 500);
+                }, 300);
               }}
               disabled={isDisabled}
             >
@@ -1001,7 +1001,7 @@ const App = () => {
           style={{
             padding: '20px',
             color: '#333',
-            transition: 'all 0.5s',
+            transition: 'all 0.3s',
             opacity: step === 2 ? 1 : 0,
             display: step2Display,
           }}
@@ -1019,7 +1019,7 @@ const App = () => {
               setTimeout(() => {
                 setStep1Display('flex');
                 setStep2Display('none');
-              }, 500);
+              }, 300);
             }}
           >
             <svg
@@ -1044,7 +1044,13 @@ const App = () => {
           </div>
           {/* 内容 */}
           <div style={{ marginTop: '46px', padding: '0 88px' }}>
-            <p style={{ textAlign: 'center', fontSize: '30px' }}>
+            <p
+              style={{
+                textAlign: 'center',
+                fontSize: '30px',
+                fontFamily: 'Alibaba-PuHuiTi-Medium',
+              }}
+            >
               ✅ 签名生成成功
             </p>
             <p
@@ -1057,7 +1063,13 @@ const App = () => {
             >
               👇2步轻松配置使用
             </p>
-            <p style={{ fontSize: '19px', marginBottom: 32 }}>
+            <p
+              style={{
+                fontSize: '19px',
+                marginBottom: 32,
+                fontFamily: 'Alibaba-PuHuiTi-Medium',
+              }}
+            >
               1）点击下面按钮将签名复制粘贴板
             </p>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -1065,10 +1077,25 @@ const App = () => {
                 复制签名
               </Button>
             </div>
-            <p style={{ fontSize: '19px', marginBottom: 28, marginTop: 64 }}>
+            <p
+              style={{
+                fontSize: '19px',
+                marginBottom: 28,
+                marginTop: 64,
+                fontFamily: 'Alibaba-PuHuiTi-Medium',
+              }}
+            >
               2）根据教程配置签名
             </p>
-            <p style={{ fontSize: '15px', marginBottom: 12 }}>企业邮箱</p>
+            <p
+              style={{
+                fontSize: '15px',
+                marginBottom: 12,
+                fontFamily: 'Alibaba-PuHuiTi-Medium',
+              }}
+            >
+              企业邮箱
+            </p>
             <Divider
               style={{
                 color: '#D9DFE4',
