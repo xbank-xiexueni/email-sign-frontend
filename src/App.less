@@ -21,9 +21,9 @@
     color: #333;
   }
   .ant-btn-default {
-    background-color: #333;
-    border-color: #333;
-    color: #fff;
+    background-color: #c1f20d;
+    border-color: #c1f20d;
+    color: #333;
     width: 220px;
     height: 45px;
     font-size: 16px;
@@ -34,6 +34,15 @@
   }
   .ant-checkbox-wrapper {
     color: #333;
+  }
+  .ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover
+    .ant-checkbox-checked:not(.ant-checkbox-disabled):after {
+    border-color: #333;
+  }
+  .ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover
+    .ant-checkbox-inner,
+  .ant-checkbox:not(.ant-checkbox-disabled):hover .ant-checkbox-inner {
+    border-color: #333;
   }
 }
 
