@@ -676,7 +676,7 @@ const App = () => {
                                 }}
                               >
                                 <a
-                                  // href='mailto:help@xbank.plus'
+                                  href='mailto:'
                                   style={{
                                     color: '#737373',
                                     textDecoration: 'none',
