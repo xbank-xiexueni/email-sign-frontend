@@ -202,7 +202,7 @@ const App = () => {
           width: '100%',
           maxWidth: '1080px',
           background: 'white',
-          height: contentHeight,
+          minHeight: contentHeight,
         }}
       >
         {/* 编辑 */}
