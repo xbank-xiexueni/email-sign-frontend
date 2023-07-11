@@ -212,13 +212,15 @@ const App = () => {
             transition: 'all 0.3s',
             opacity: step === 1 ? 1 : 0,
             display: step1Display,
+            // ?
+            alignItems: 'stretch',
           }}
         >
           <Sider
             width={'330px'}
             style={{
               background: 'white',
-              height: contentHeight,
+              minHeight: contentHeight,
             }}
           >
             <div>
@@ -283,7 +285,13 @@ const App = () => {
                       fill='white'
                     />
                   </svg>
-                  <span style={{ fontSize: '14px', fontWeight: '400' }}>
+                  <span
+                    style={{
+                      fontSize: '14px',
+                      fontWeight: '400',
+                      marginTop: 4,
+                    }}
+                  >
                     中研
                   </span>
                 </div>
@@ -329,6 +337,7 @@ const App = () => {
                     style={{
                       fontSize: '14px',
                       fontWeight: '400',
+                      marginTop: 4,
                     }}
                   >
                     明色
@@ -469,7 +478,7 @@ const App = () => {
                       rules={[
                         {
                           validator: (_, value, callback) => {
-                            !/\d{4}$/.test(value)
+                            !/\d{3,4}$/.test(value)
                               ? callback('无效输入')
                               : callback();
                           },
@@ -566,267 +575,221 @@ const App = () => {
               flexDirection: 'column',
               alignItems: 'center',
               gap: '32px',
+              justifyContent: 'space-around',
+              padding: '10px 0',
             }}
           >
-            <div
-              style={{
-                width: '670px',
-                boxShadow: '0px 2px 30px 0px rgba(0, 0, 0, 0.10)',
-                borderRadius: 8,
-                overflow: 'hidden',
-                marginTop: '50px',
-              }}
-            >
+            <div>
               <div
                 style={{
-                  background: '#191A1D',
-                  display: 'flex',
-                  height: '44px',
-                  alignItems: 'center',
-                  padding: '16px',
-                  gap: '8px',
+                  width: '670px',
+                  boxShadow: '0px 2px 30px 0px rgba(0, 0, 0, 0.10)',
+                  borderRadius: 8,
+                  overflow: 'hidden',
+                  // marginTop: '50px',
                 }}
               >
-                {['#EC3A4A', '#F1B659', '#18B295'].map((color) => (
-                  <div
-                    key={color}
-                    style={{
-                      width: '12px',
-                      height: '12px',
-                      borderRadius: '100%',
-                      backgroundColor: color,
-                    }}
-                  />
-                ))}
-              </div>
-              <div
-                style={{
-                  padding: '24px',
-                  backgroundColor: 'white',
-                }}
-              >
-                {/* 问候 */}
-                <div style={{ marginBottom: '32px', width: '500px' }}>
-                  <p
-                    style={{
-                      fontSize: '12px',
-                      color: '#B1B1B1',
-                      marginBottom: 10,
-                    }}
-                  >
-                    To: {GREET_DATA[lang].name}
-                  </p>
-                  <Divider style={{ color: '#D9DFE4', margin: 0 }} />
-                  <p
-                    style={{
-                      fontSize: '12px',
-                      color: '#B1B1B1',
-                      margin: '10px 0',
-                    }}
-                  >
-                    {GREET_DATA[lang].object}
-                  </p>
-                  <Divider style={{ color: '#D9DFE4', margin: 0 }} />
-                  <p
-                    style={{
-                      fontSize: '12px',
-                      color: '#B1B1B1',
-                      marginBottom: 10,
-                      marginTop: 20,
-                    }}
-                  >
-                    Hi {GREET_DATA[lang].name}
-                  </p>
-                  <p
-                    style={{
-                      fontSize: '12px',
-                      color: '#B1B1B1',
-                      marginBottom: 10,
-                    }}
-                  >
-                    {GREET_DATA[lang].content}
-                  </p>
-                  <p
-                    style={{
-                      fontSize: '12px',
-                      color: '#B1B1B1',
-                      marginBottom: '10px',
-                    }}
-                  >
-                    {GREET_DATA[lang].end}
-                  </p>
-                </div>
-                {/* 预览 */}
-                <div className='preview'>
-                  <div>
+                <div
+                  style={{
+                    background: '#191A1D',
+                    display: 'flex',
+                    height: '44px',
+                    alignItems: 'center',
+                    padding: '16px',
+                    gap: '8px',
+                  }}
+                >
+                  {['#EC3A4A', '#F1B659', '#18B295'].map((color) => (
                     <div
+                      key={color}
                       style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
-                        width: '426px',
-                        padding: '12px',
-                        flexWrap: 'nowrap',
-                        alignItems:
-                          tabKey === TAB_KEY.SINNO ? 'center' : 'stretch',
+                        width: '12px',
+                        height: '12px',
+                        borderRadius: '100%',
+                        backgroundColor: color,
+                      }}
+                    />
+                  ))}
+                </div>
+                <div
+                  style={{
+                    padding: '24px',
+                    backgroundColor: 'white',
+                  }}
+                >
+                  {/* 问候 */}
+                  <div style={{ marginBottom: '32px' }}>
+                    <p
+                      style={{
+                        fontSize: '12px',
+                        color: '#B1B1B1',
+                        marginBottom: 10,
                       }}
                     >
-                      {/* 左边 */}
+                      To: {GREET_DATA[lang].name}
+                    </p>
+                    <Divider style={{ color: '#D9DFE4', margin: 0 }} />
+                    <p
+                      style={{
+                        fontSize: '12px',
+                        color: '#B1B1B1',
+                        margin: '10px 0',
+                        width: '500px',
+                      }}
+                    >
+                      {GREET_DATA[lang].object}
+                    </p>
+                    <Divider style={{ color: '#D9DFE4', margin: 0 }} />
+                    <p
+                      style={{
+                        fontSize: '12px',
+                        color: '#B1B1B1',
+                        marginBottom: 10,
+                        marginTop: 20,
+                      }}
+                    >
+                      Hi {GREET_DATA[lang].name}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: '12px',
+                        color: '#B1B1B1',
+                        marginBottom: 10,
+                        width: '500px',
+                      }}
+                    >
+                      {GREET_DATA[lang].content}
+                    </p>
+                    <p
+                      style={{
+                        fontSize: '12px',
+                        color: '#B1B1B1',
+                        marginBottom: '10px',
+                      }}
+                    >
+                      {GREET_DATA[lang].end}
+                    </p>
+                  </div>
+                  {/* 预览 */}
+                  <div className='preview'>
+                    <div>
                       <div
-                        hidden={isDisabled}
-                        style={{ width: '270px', whiteSpace: 'pre-line' }}
+                        style={{
+                          display: 'flex',
+                          justifyContent: 'space-between',
+                          width: '426px',
+                          padding: '12px',
+                          flexWrap: 'nowrap',
+                          alignItems:
+                            tabKey === TAB_KEY.SINNO ? 'center' : 'stretch',
+                        }}
                       >
-                        {lang === 'zh' && (
-                          <div>
-                            {formData?.nameZh1 && (
-                              <span
-                                style={{
-                                  fontSize: '24px',
-                                  fontWeight: 800,
-                                  color: '#333',
-                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
-                                }}
-                              >
-                                {formData.nameZh1}
-                              </span>
-                            )}
-                            {formData?.nameZh2 && (
-                              <span
-                                style={{
-                                  fontSize: '24px',
-                                  fontWeight: 800,
-                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
-                                }}
-                              >
-                                &nbsp;{formData.nameZh2}
-                              </span>
-                            )}
-                            {formData?.nameEn && (
-                              <span
-                                style={{
-                                  fontSize: '12px',
-                                  fontWeight: 400,
-                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
-                                }}
-                              >
-                                &nbsp;{formData.nameEn}
-                              </span>
-                            )}
-                          </div>
-                        )}
-                        {lang === 'en' && (
-                          <div>
-                            {formData?.nameEn && (
-                              <span
-                                style={{
-                                  fontSize: '24px',
-                                  fontWeight: 800,
-                                  color: '#333',
-                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
-                                }}
-                              >
-                                {formData.nameEn}
-                              </span>
-                            )}
+                        {/* 左边 */}
+                        <div
+                          hidden={isDisabled}
+                          style={{ width: '270px', whiteSpace: 'pre-line' }}
+                        >
+                          {lang === 'zh' && (
+                            <div>
+                              {formData?.nameZh1 && (
+                                <span
+                                  style={{
+                                    fontSize: '24px',
+                                    fontWeight: 800,
+                                    color: '#333',
+                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                  }}
+                                >
+                                  {formData.nameZh1}
+                                </span>
+                              )}
+                              {formData?.nameZh2 && (
+                                <span
+                                  style={{
+                                    fontSize: '24px',
+                                    fontWeight: 800,
+                                    color: '#333',
+                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                  }}
+                                >
+                                  &nbsp;{formData.nameZh2}
+                                </span>
+                              )}
+                              {formData?.nameEn && (
+                                <span
+                                  style={{
+                                    fontSize: '12px',
+                                    fontWeight: 400,
+                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                    color: '#333',
+                                  }}
+                                >
+                                  &nbsp;{formData.nameEn}
+                                </span>
+                              )}
+                            </div>
+                          )}
+                          {lang === 'en' && (
+                            <div>
+                              {formData?.nameEn && (
+                                <span
+                                  style={{
+                                    fontSize: '24px',
+                                    fontWeight: 800,
+                                    color: '#333',
+                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                  }}
+                                >
+                                  {formData.nameEn}
+                                </span>
+                              )}
 
-                            {formData?.nameZh1 && (
-                              <span
-                                style={{
-                                  fontSize: '12px',
-                                  fontWeight: 400,
-                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
-                                }}
-                              >
-                                &nbsp; &nbsp;{formData.nameZh1}
-                              </span>
-                            )}
-                            {formData?.nameZh2 && (
-                              <span
-                                style={{
-                                  fontSize: '12px',
-                                  fontWeight: 400,
-                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
-                                }}
-                              >
-                                &nbsp;{formData.nameZh2}
-                              </span>
-                            )}
-                          </div>
-                        )}
-                        {formData?.profession && (
-                          <div
-                            style={{
-                              fontSize: '14px',
-                              color: '#737373',
-                              fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
-                            }}
-                          >
-                            {formData.profession}
-                          </div>
-                        )}
-                        <div style={{ marginTop: 24 }}>
-                          {formData?.phone && (
-                            <div
-                              style={{
-                                fontSize: '13px',
-                                color: '#737373',
-                                marginBottom: 4,
-                                fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
-                              }}
-                            >
-                              <img
-                                src={getImageUrl(
-                                  tabKey === TAB_KEY.SINNO
-                                    ? '/dot-sinno.png'
-                                    : '/dot-minnocos.png'
-                                )}
-                                width={6}
-                              />
-                              <span>
-                                &nbsp;+86{' '}
-                                {formData?.phone?.replace(
-                                  /^(.{3})(.*)(.{4})$/,
-                                  '$1 $2 $3'
-                                )}
-                              </span>
+                              {formData?.nameZh1 && (
+                                <span
+                                  style={{
+                                    fontSize: '12px',
+                                    fontWeight: 400,
+                                    color: '#333',
+                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                  }}
+                                >
+                                  &nbsp; &nbsp;{formData.nameZh1}
+                                </span>
+                              )}
+                              {formData?.nameZh2 && (
+                                <span
+                                  style={{
+                                    fontSize: '12px',
+                                    fontWeight: 400,
+                                    color: '#333',
+                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                  }}
+                                >
+                                  &nbsp;{formData.nameZh2}
+                                </span>
+                              )}
                             </div>
                           )}
-                          {formData?.tel1 && formData?.tel2 && (
+                          {formData?.profession && (
                             <div
                               style={{
-                                fontSize: '13px',
+                                fontSize: '14px',
                                 color: '#737373',
-                                marginBottom: 4,
                                 fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                               }}
                             >
-                              <img
-                                src={getImageUrl(
-                                  tabKey === TAB_KEY.SINNO
-                                    ? '/dot-sinno.png'
-                                    : '/dot-minnocos.png'
-                                )}
-                                width={6}
-                              />
-                              <span>
-                                &nbsp;+{formData?.tel1} {formData.tel2}
-                              </span>
+                              {formData.profession}
                             </div>
                           )}
-                          {formData?.email && (
-                            <div
-                              style={{
-                                fontSize: '13px',
-                                color: '#737373',
-                                fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
-                              }}
-                            >
-                              <a
-                                href='mailto:'
+                          <div style={{ marginTop: 20 }}>
+                            {formData?.phone && (
+                              <div
                                 style={{
+                                  fontSize: '13px',
                                   color: '#737373',
-                                  textDecoration: 'none',
+                                  marginBottom: 4,
+                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                 }}
-                                target='_blank'
                               >
                                 <img
                                   src={getImageUrl(
@@ -836,160 +799,246 @@ const App = () => {
                                   )}
                                   width={6}
                                 />
-                                <span>&nbsp;{formData?.email}</span>
-                              </a>
-                            </div>
-                          )}
-                          {formData?.address && (
-                            <div
-                              style={{
-                                marginTop: '16px',
-                                color: '#737373',
-                                fontSize: '11px',
-                                fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
-                                whiteSpace: 'break-spaces',
-                                wordBreak: 'break-word',
-                                width: lang === 'zh' ? '230px' : 'auto',
-                              }}
-                            >
-                              {formData.address}
-                              <div>
-                                <a
-                                  href={
+                                <span>
+                                  &nbsp;+86{' '}
+                                  {formData?.phone?.replace(
+                                    /^(.{3})(.*)(.{4})$/,
+                                    '$1 $2 $3'
+                                  )}
+                                </span>
+                              </div>
+                            )}
+                            {formData?.tel1 && formData?.tel2 && (
+                              <div
+                                style={{
+                                  fontSize: '13px',
+                                  color: '#737373',
+                                  marginBottom: 4,
+                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                }}
+                              >
+                                <img
+                                  src={getImageUrl(
                                     tabKey === TAB_KEY.SINNO
-                                      ? SINNO_URL
-                                      : MINNOCOS_UR
-                                  }
+                                      ? '/dot-sinno.png'
+                                      : '/dot-minnocos.png'
+                                  )}
+                                  width={6}
+                                />
+                                <span>
+                                  &nbsp;+{formData?.tel1} {formData.tel2}
+                                </span>
+                              </div>
+                            )}
+                            {formData?.email && (
+                              <div
+                                style={{
+                                  fontSize: '13px',
+                                  color: '#737373',
+                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                }}
+                              >
+                                <a
+                                  href='mailto:'
                                   style={{
                                     color: '#737373',
                                     textDecoration: 'none',
-                                    fontSize: '11px',
-                                    opacity: 0.7,
-                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                   }}
+                                  target='_blank'
                                 >
-                                  <span>
-                                    {(tabKey === TAB_KEY.SINNO
-                                      ? SINNO_URL
-                                      : MINNOCOS_UR
-                                    ).replace('https://', '')}
-                                  </span>
+                                  <img
+                                    src={getImageUrl(
+                                      tabKey === TAB_KEY.SINNO
+                                        ? '/dot-sinno.png'
+                                        : '/dot-minnocos.png'
+                                    )}
+                                    width={6}
+                                  />
+                                  <span>&nbsp;{formData?.email}</span>
                                 </a>
                               </div>
+                            )}
+                            {formData?.address && (
+                              <div
+                                style={{
+                                  marginTop: '16px',
+                                  color: '#737373',
+                                  width: lang === 'zh' ? '250px' : 'auto',
+                                }}
+                              >
+                                <span
+                                  style={{
+                                    fontSize: '12px',
+                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                    whiteSpace: 'break-spaces',
+                                    wordBreak: 'break-word',
+                                    transform: 'scale(0.916666)',
+                                    transformOrigin: 'left top',
+                                  }}
+                                >
+                                  {formData.address}
+                                </span>
+                                <div>
+                                  <a
+                                    href={
+                                      tabKey === TAB_KEY.SINNO
+                                        ? SINNO_URL
+                                        : MINNOCOS_UR
+                                    }
+                                    style={{
+                                      color: '#737373',
+                                      textDecoration: 'none',
+                                      opacity: 0.7,
+                                      fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                    }}
+                                    target='_blank'
+                                  >
+                                    <span
+                                      style={{
+                                        fontSize: '12px',
+                                        transform: 'scale(0.91666)',
+                                        transformOrigin: 'left top',
+                                      }}
+                                    >
+                                      {(tabKey === TAB_KEY.SINNO
+                                        ? SINNO_URL
+                                        : MINNOCOS_UR
+                                      ).replace('https://', '')}
+                                    </span>
+                                  </a>
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                        {/* 右边 logo */}
+                        <div>
+                          {tabKey === TAB_KEY.SINNO && lang === 'zh' && (
+                            <img
+                              src={getImageUrl('/sinno-zh.png')}
+                              width={100}
+                            />
+                          )}
+                          {tabKey === TAB_KEY.SINNO && lang === 'en' && (
+                            <img
+                              src={getImageUrl('/sinno-en.png')}
+                              width={100}
+                            />
+                          )}
+                          {tabKey === TAB_KEY.MINNOCOS && lang === 'zh' && (
+                            <div
+                              style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                                height: '100%',
+                                alignItems: 'center',
+                              }}
+                            >
+                              <img
+                                src={getImageUrl('/minnocos-zh.png')}
+                                width={130}
+                              />
+                              <img
+                                src={getImageUrl('/minnocos-footer-zh.png')}
+                                width={82}
+                              />
+                            </div>
+                          )}
+                          {tabKey === TAB_KEY.MINNOCOS && lang === 'en' && (
+                            <div
+                              style={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                justifyContent: 'space-between',
+                                height: '100%',
+                                alignItems: 'center',
+                              }}
+                            >
+                              <img
+                                src={getImageUrl('/minnocos-en.png')}
+                                width={130}
+                              />
+                              <img
+                                src={getImageUrl('/minnocos-footer-en.png')}
+                                width={82}
+                              />
                             </div>
                           )}
                         </div>
                       </div>
-                      {/* 右边 logo */}
-                      <div>
-                        {tabKey === TAB_KEY.SINNO && lang === 'zh' && (
-                          <img src={getImageUrl('/sinno-zh.png')} width={100} />
-                        )}
-                        {tabKey === TAB_KEY.SINNO && lang === 'en' && (
-                          <img src={getImageUrl('/sinno-en.png')} width={100} />
-                        )}
-                        {tabKey === TAB_KEY.MINNOCOS && lang === 'zh' && (
+                      {formData?.privacy && (
+                        <div
+                          style={{
+                            padding: 8,
+                            marginTop: 16,
+                            fontSize: '12px',
+                            color: '#B3B3B3',
+                            width: '442px',
+                            whiteSpace: 'pre-line',
+                            borderRadius: 4,
+                            borderColor: 'rgba(217, 223, 228, 0.60)',
+                            borderWidth: 1,
+                            borderStyle: 'solid',
+                            height: '155px',
+                            fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                          }}
+                        >
                           <div
                             style={{
-                              display: 'flex',
-                              flexDirection: 'column',
-                              justifyContent: 'space-between',
-                              height: '100%',
-                              alignItems: 'center',
+                              transform: 'scale(0.7)',
+                              transformOrigin: 'left top',
+                              width: '142%',
                             }}
                           >
-                            <img
-                              src={getImageUrl('/minnocos-zh.png')}
-                              width={130}
-                            />
-                            <img
-                              src={getImageUrl('/minnocos-footer-zh.png')}
-                              width={82}
-                            />
+                            <div style={{ fontWeight: 600 }}>保密声明：</div>
+                            {PRIVACTY_DATA['zh']}
                           </div>
-                        )}
-                        {tabKey === TAB_KEY.MINNOCOS && lang === 'en' && (
                           <div
                             style={{
-                              display: 'flex',
-                              flexDirection: 'column',
-                              justifyContent: 'space-between',
-                              height: '100%',
-                              alignItems: 'center',
+                              transform: 'scale(0.7)',
+                              transformOrigin: 'left top',
+                              width: '142%',
+                              marginTop: '-10px',
                             }}
                           >
-                            <img
-                              src={getImageUrl('/minnocos-en.png')}
-                              width={130}
-                            />
-                            <img
-                              src={getImageUrl('/minnocos-footer-en.png')}
-                              width={82}
-                            />
+                            <div style={{ fontWeight: 600 }}>
+                              CONFIDENTIALITY NOTICE:
+                            </div>
+                            {PRIVACTY_DATA['en']}
                           </div>
-                        )}
-                      </div>
+                        </div>
+                      )}
                     </div>
-                    {formData?.privacy && (
-                      <div
-                        style={{
-                          padding: 8,
-                          marginTop: 16,
-                          fontSize: '12px',
-                          color: '#B3B3B3',
-                          width: '442px',
-                          whiteSpace: 'pre-line',
-                          borderRadius: 4,
-                          borderColor: 'rgba(217, 223, 228, 0.60)',
-                          borderWidth: 1,
-                          borderStyle: 'solid',
-                          height: '155px',
-                          fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
-                        }}
-                      >
-                        <div
-                          style={{
-                            transform: 'scale(0.7)',
-                            transformOrigin: 'left top',
-                            width: '142%',
-                          }}
-                        >
-                          <div style={{ fontWeight: 600 }}>保密声明：</div>
-                          {PRIVACTY_DATA['zh']}
-                        </div>
-                        <div
-                          style={{
-                            transform: 'scale(0.7)',
-                            transformOrigin: 'left top',
-                            width: '142%',
-                            marginTop: '-10px',
-                          }}
-                        >
-                          <div style={{ fontWeight: 600 }}>
-                            CONFIDENTIALITY NOTICE:
-                          </div>
-                          {PRIVACTY_DATA['en']}
-                        </div>
-                      </div>
-                    )}
                   </div>
                 </div>
               </div>
+
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  backgroundColor: '#eaeff5',
+                  marginTop: 32,
+                }}
+              >
+                <Button
+                  onClick={() => {
+                    const mailDom =
+                      document.querySelector('.preview')?.innerHTML;
+                    setDom(mailDom);
+                    setStep(2);
+                    setTimeout(() => {
+                      setStep1Display('none');
+                      setStep2Display('block');
+                    }, 300);
+                  }}
+                  disabled={isDisabled}
+                >
+                  生成签名
+                </Button>
+              </div>
             </div>
-            <Button
-              onClick={() => {
-                const mailDom = document.querySelector('.preview')?.innerHTML;
-                setDom(mailDom);
-                setStep(2);
-                setTimeout(() => {
-                  setStep1Display('none');
-                  setStep2Display('block');
-                }, 300);
-              }}
-              disabled={isDisabled}
-            >
-              生成签名
-            </Button>
           </Content>
         </Layout>
 
@@ -1111,7 +1160,7 @@ const App = () => {
                 href='https://exmail.qq.com/'
                 style={{
                   fontWeight: 500,
-                  color: '#737373',
+                  color: 'black',
                   fontFamily: 'Alibaba-PuHuiTi-Regular',
                 }}
                 target='_blank'
@@ -1123,6 +1172,7 @@ const App = () => {
                 style={{
                   fontWeight: 500,
                   fontFamily: 'Alibaba-PuHuiTi-Regular',
+                  color: 'black',
                 }}
               >
                 {' '}
@@ -1142,6 +1192,7 @@ const App = () => {
                 style={{
                   fontWeight: 500,
                   fontFamily: 'Alibaba-PuHuiTi-Regular',
+                  color: 'black',
                 }}
               >
                 {' '}
@@ -1160,6 +1211,7 @@ const App = () => {
                 style={{
                   fontWeight: 500,
                   fontFamily: 'Alibaba-PuHuiTi-Regular',
+                  color: 'black',
                 }}
               >
                 {' '}
@@ -1180,6 +1232,7 @@ const App = () => {
                 style={{
                   fontWeight: 500,
                   fontFamily: 'Alibaba-PuHuiTi-Regular',
+                  color: 'black',
                 }}
               >
                 {' '}
