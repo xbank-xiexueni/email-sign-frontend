@@ -5,14 +5,21 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   server: {},
+  build: {
+    outDir: 'email_sign_dist',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'react-venders': ['react', 'react-dom'],
+        },
+      },
+    },
+  },
   css: {
     preprocessorOptions: {
-      modifyVars: {
-        
-      },
+      modifyVars: {},
       less: {
         javascriptEnabled: true,
-      
       },
     },
   },

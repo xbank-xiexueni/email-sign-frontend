@@ -700,7 +700,7 @@ const App = () => {
                                     fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                   }}
                                 >
-                                  {formData.nameZh1}
+                                  {formData.nameZh1}&nbsp;
                                 </span>
                               )}
                               {formData?.nameZh2 && (
@@ -712,7 +712,7 @@ const App = () => {
                                     fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                   }}
                                 >
-                                  &nbsp;{formData.nameZh2}
+                                  {formData.nameZh2}
                                 </span>
                               )}
                               {formData?.nameEn && (
@@ -740,7 +740,7 @@ const App = () => {
                                     fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                   }}
                                 >
-                                  {formData.nameEn}
+                                  {formData.nameEn}&nbsp;
                                 </span>
                               )}
 
@@ -753,7 +753,7 @@ const App = () => {
                                     fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                   }}
                                 >
-                                  &nbsp; &nbsp;{formData.nameZh1}
+                                  {formData.nameZh1}&nbsp;
                                 </span>
                               )}
                               {formData?.nameZh2 && (
@@ -765,7 +765,7 @@ const App = () => {
                                     fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                                   }}
                                 >
-                                  &nbsp;{formData.nameZh2}
+                                  {formData.nameZh2}
                                 </span>
                               )}
                             </div>
