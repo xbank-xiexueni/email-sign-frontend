@@ -675,6 +675,13 @@ const App = () => {
                     <div>
                       <div
                         style={{
+                          width: '50px',
+                          height: '1px',
+                          backgroundColor: 'rgb(230,232,235)',
+                        }}
+                      />
+                      <div
+                        style={{
                           display: 'flex',
                           justifyContent: 'space-between',
                           width: '426px',
