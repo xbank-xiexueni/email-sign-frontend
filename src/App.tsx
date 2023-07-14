@@ -31,34 +31,7 @@ enum TAB_KEY {
 
 // 因为需要特殊的字体，所以需要加载字体文件
 const getHTMLStr = (body: string) => {
-  return `<html>
-  <head>
-    <style>
-      @font-face {
-        font-family: AlibabaPuHuiTi-2-55-Regular;
-        src: url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.eot)
-            format('embedded-opentype'),
-          url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.otf)
-            format('opentype'),
-          url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.ttf)
-            format('TrueType'),
-          url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.woff)
-            format('woff'),
-          url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.woff2)
-            format('woff2');
-      }
-      * {
-        margin: 0;
-        padding: 0;
-        font-family: AlibabaPuHuiTi-2-55-Regular, sans-serif;
-      }
-    </style>
-  </head>
-  <body>
-    ${body}
-  </body>
-</html>
-`;
+  return `<html><head><style>@font-face {font-family: AliPuHuiTi-2;src: url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.ttf) format('TrueType');}* {margin: 0;padding: 0;font-family: AliPuHuiTi-2, sans-serif;}</style></head><body>${body}</body></html>`;
 };
 const getImageUrl = (src: string) => {
   return `https://www.sinnolab.com/EmailSign${src}`;
@@ -78,6 +51,7 @@ const App = () => {
 
   const onCopy = useCallback(async () => {
     if (!dom) return;
+    console.log(dom);
     // const item = new clipboard.ClipboardItem({
     //   'text/html': new Blob([dom], { type: 'text/html' }),
     // });
@@ -704,7 +678,7 @@ const App = () => {
                                     fontSize: '24px',
                                     fontWeight: 800,
                                     color: '#333',
-                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                    fontFamily: 'AliPuHuiTi-2',
                                   }}
                                 >
                                   {formData.nameZh1}&nbsp;
@@ -716,7 +690,7 @@ const App = () => {
                                     fontSize: '24px',
                                     fontWeight: 800,
                                     color: '#333',
-                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                    fontFamily: 'AliPuHuiTi-2',
                                   }}
                                 >
                                   {formData.nameZh2}
@@ -727,7 +701,7 @@ const App = () => {
                                   style={{
                                     fontSize: '12px',
                                     fontWeight: 400,
-                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                    fontFamily: 'AliPuHuiTi-2',
                                     color: '#333',
                                   }}
                                 >
@@ -744,7 +718,7 @@ const App = () => {
                                     fontSize: '24px',
                                     fontWeight: 800,
                                     color: '#333',
-                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                    fontFamily: 'AliPuHuiTi-2',
                                   }}
                                 >
                                   {formData.nameEn}&nbsp;
@@ -757,7 +731,7 @@ const App = () => {
                                     fontSize: '12px',
                                     fontWeight: 400,
                                     color: '#333',
-                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                    fontFamily: 'AliPuHuiTi-2',
                                   }}
                                 >
                                   {formData.nameZh1}&nbsp;
@@ -769,7 +743,7 @@ const App = () => {
                                     fontSize: '12px',
                                     fontWeight: 400,
                                     color: '#333',
-                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                    fontFamily: 'AliPuHuiTi-2',
                                   }}
                                 >
                                   {formData.nameZh2}
@@ -782,7 +756,7 @@ const App = () => {
                               style={{
                                 fontSize: '14px',
                                 color: '#737373',
-                                fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                fontFamily: 'AliPuHuiTi-2',
                               }}
                             >
                               {formData.profession}
@@ -795,7 +769,7 @@ const App = () => {
                                   fontSize: '13px',
                                   color: '#737373',
                                   marginBottom: 4,
-                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                  fontFamily: 'AliPuHuiTi-2',
                                 }}
                               >
                                 <img
@@ -821,7 +795,7 @@ const App = () => {
                                   fontSize: '13px',
                                   color: '#737373',
                                   marginBottom: 4,
-                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                  fontFamily: 'AliPuHuiTi-2',
                                 }}
                               >
                                 <img
@@ -842,7 +816,7 @@ const App = () => {
                                 style={{
                                   fontSize: '13px',
                                   color: '#737373',
-                                  fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                  fontFamily: 'AliPuHuiTi-2',
                                 }}
                               >
                                 <a
@@ -876,7 +850,7 @@ const App = () => {
                                 <span
                                   style={{
                                     fontSize: '12px',
-                                    fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                    fontFamily: 'AliPuHuiTi-2',
                                     whiteSpace: 'break-spaces',
                                     wordBreak: 'break-word',
                                     transform: 'scale(0.916666)',
@@ -896,7 +870,7 @@ const App = () => {
                                       color: '#737373',
                                       textDecoration: 'none',
                                       opacity: 0.7,
-                                      fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                                      fontFamily: 'AliPuHuiTi-2',
                                     }}
                                     target='_blank'
                                   >
@@ -988,7 +962,7 @@ const App = () => {
                             borderWidth: 1,
                             borderStyle: 'solid',
                             // height: '70%',
-                            fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
+                            fontFamily: 'AliPuHuiTi-2',
                           }}
                         >
                           <div
