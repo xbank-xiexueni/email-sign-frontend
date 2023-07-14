@@ -34,7 +34,7 @@ const getHTMLStr = (body: string) => {
   return `<html>
   <head>
     <style>
-      <style> @font-face {
+      @font-face {
         font-family: AlibabaPuHuiTi-2-55-Regular;
         src: url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.eot)
             format('embedded-opentype'),
@@ -980,15 +980,16 @@ const App = () => {
                             borderColor: 'rgba(217, 223, 228, 0.60)',
                             borderWidth: 1,
                             borderStyle: 'solid',
-                            height: '155px',
+                            // height: '70%',
                             fontFamily: 'AlibabaPuHuiTi-2-55-Regular',
                           }}
                         >
                           <div
                             style={{
-                              transform: 'scale(0.7)',
+                              // transform: 'scale(0.7)',
                               transformOrigin: 'left top',
-                              width: '142%',
+                              // width: '142%',
+                              zoom: 0.7,
                             }}
                           >
                             <div style={{ fontWeight: 600 }}>保密声明：</div>
@@ -996,10 +997,11 @@ const App = () => {
                           </div>
                           <div
                             style={{
-                              transform: 'scale(0.7)',
+                              // transform: 'scale(0.7)',
                               transformOrigin: 'left top',
-                              width: '142%',
-                              marginTop: '-10px',
+                              // width: '142%',
+                              marginTop: '10px',
+                              zoom: 0.7,
                             }}
                           >
                             <div style={{ fontWeight: 600 }}>
