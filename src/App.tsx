@@ -61,7 +61,7 @@ const getHTMLStr = (body: string) => {
 `;
 };
 const getImageUrl = (src: string) => {
-  return `${window?.location?.origin}${src}`;
+  return `https://www.sinnolab.com/EmailSign${src}`;
 };
 const { Sider, Content } = Layout;
 const App = () => {
