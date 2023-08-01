@@ -539,7 +539,7 @@ const App = () => {
                 justifyContent: 'center',
               }}
             >
-              <Image src={ImgSinnoFooter} height={'40px'} preview={false} />
+              <Image src={ImgSinnoFooter} height={'40px'} preview={false} width={'113px'}/>
             </div>
           </Sider>
           <Content
