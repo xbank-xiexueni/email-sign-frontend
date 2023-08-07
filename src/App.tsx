@@ -36,7 +36,11 @@ const getHTMLStr = (body: string) => {
   return `<html><head><style>@font-face {font-family: AliPuHuiTi-2;src: url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.ttf) format('TrueType');}* {margin: 0;padding: 0;font-family: AliPuHuiTi-2, sans-serif;}</style></head><body>${body}</body></html>`;
 };
 const getImageUrl = (src: string) => {
-  return `${import.meta.env.VITE_IMAGE_PREFIX || window.location.origin}${src}`;
+  return `${
+    import.meta.env.VITE_IMAGE_PREFIX ||
+    'https://email-sign-frontend.pages.dev/'
+    // window.location.origin
+  }${src}`;
 };
 const { Sider, Content } = Layout;
 const App = () => {
@@ -778,7 +782,10 @@ const App = () => {
                       <div
                         style={{
                           display: 'flex',
-                          justifyContent: 'space-between',
+                          justifyContent:
+                            tabKey === TAB_KEY.VISION
+                              ? 'flex-start'
+                              : 'space-between',
                           width: '426px',
                           padding: '12px',
                           flexWrap: 'nowrap',
@@ -789,7 +796,11 @@ const App = () => {
                         {/* 左边 */}
                         <div
                           hidden={isDisabled}
-                          style={{ width: '270px', whiteSpace: 'pre-line' }}
+                          style={{
+                            width:
+                              tabKey === TAB_KEY.VISION ? '210px' : '270px',
+                            whiteSpace: 'pre-line',
+                          }}
                         >
                           {lang === 'zh' && (
                             <div>
@@ -1019,12 +1030,14 @@ const App = () => {
                             <img
                               src={getImageUrl('/sinno-zh.png')}
                               width={100}
+                              height={100}
                             />
                           )}
                           {tabKey === TAB_KEY.SINNO && lang === 'en' && (
                             <img
                               src={getImageUrl('/sinno-en.png')}
                               width={100}
+                              height={100}
                             />
                           )}
                           {tabKey === TAB_KEY.MINNOCOS && lang === 'zh' && (
@@ -1035,15 +1048,18 @@ const App = () => {
                                 justifyContent: 'space-between',
                                 height: '100%',
                                 alignItems: 'center',
+                                flexWrap: 'wrap',
                               }}
                             >
                               <img
                                 src={getImageUrl('/minnocos-zh.png')}
                                 width={130}
+                                height={40}
                               />
                               <img
                                 src={getImageUrl('/minnocos-footer-zh.png')}
                                 width={82}
+                                height={18}
                               />
                             </div>
                           )}
@@ -1055,15 +1071,18 @@ const App = () => {
                                 justifyContent: 'space-between',
                                 height: '100%',
                                 alignItems: 'center',
+                                flexWrap: 'wrap',
                               }}
                             >
                               <img
                                 src={getImageUrl('/minnocos-en.png')}
                                 width={130}
+                                height={40}
                               />
                               <img
                                 src={getImageUrl('/minnocos-footer-en.png')}
                                 width={82}
+                                height={18}
                               />
                             </div>
                           )}
@@ -1076,15 +1095,18 @@ const App = () => {
                                 justifyContent: 'space-between',
                                 height: '100%',
                                 alignItems: 'center',
+                                flexWrap: 'wrap',
                               }}
                             >
                               <img
                                 src={getImageUrl('/vision-zh.png')}
                                 width={98}
+                                height={98}
                               />
                               <img
                                 src={getImageUrl('/minnocos-footer-zh.png')}
                                 width={82}
+                                height={18}
                               />
                             </div>
                           )}
@@ -1096,15 +1118,18 @@ const App = () => {
                                 justifyContent: 'space-between',
                                 height: '100%',
                                 alignItems: 'center',
+                                flexWrap: 'wrap',
                               }}
                             >
                               <img
                                 src={getImageUrl('/vision-en.png')}
                                 width={98}
+                                height={98}
                               />
                               <img
                                 src={getImageUrl('/minnocos-footer-en.png')}
                                 width={82}
+                                height={18}
                               />
                             </div>
                           )}
