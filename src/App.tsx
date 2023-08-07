@@ -36,7 +36,7 @@ const getHTMLStr = (body: string) => {
   return `<html><head><style>@font-face {font-family: AliPuHuiTi-2;src: url(https://puhuiti.oss-cn-hangzhou.aliyuncs.com/AlibabaPuHuiTi-2/AlibabaPuHuiTi-2-55-Regular/AlibabaPuHuiTi-2-55-Regular.ttf) format('TrueType');}* {margin: 0;padding: 0;font-family: AliPuHuiTi-2, sans-serif;}</style></head><body>${body}</body></html>`;
 };
 const getImageUrl = (src: string) => {
-  return `${import.meta.env.VITE_IMAGE_PREFIX}${src}`;
+  return `${import.meta.env.VITE_IMAGE_PREFIX || ''}${src}`;
 };
 const { Sider, Content } = Layout;
 const App = () => {
