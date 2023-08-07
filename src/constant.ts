@@ -69,6 +69,34 @@ export const MINNOCOS_INITIAL_DATA = {
   },
 };
 
+export const VISION_INITIAL_DATA = {
+  zh: {
+    nameEn: 'Albert',
+    nameZh1: '王',
+    nameZh2: '大锤',
+    profession: '产品部',
+    phone: '123 1234 1234',
+    tel1: undefined,
+    tel2: undefined,
+    email: 'sample@sinnolab.com',
+    address: '上海市 闵行区 元江路525号 23幢',
+    privacy: false,
+  },
+  en: {
+    nameEn: 'Albert',
+    nameZh1: '王',
+    nameZh2: '大锤',
+    profession: 'Product Department',
+    phone: '123 1234 1234',
+    tel1: undefined,
+    tel2: undefined,
+    email: 'sample@sinnolab.com',
+    address:
+      '525 Building 23, Yuanjiang Road, Minhang District, Shanghai, China',
+    privacy: false,
+  },
+};
+
 export const SINNO_URL = 'https://www.sinnolab.com';
 export const MINNOCOS_UR = 'https://www.minnocos.com';
 
