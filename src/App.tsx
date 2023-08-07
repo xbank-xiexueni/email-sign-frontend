@@ -167,17 +167,41 @@ const App = () => {
     return newVal;
   };
 
-  const rowSpan = useMemo(() => {
+  const flag = useMemo(() => {
     // if (tabKey !== TAB_KEY.SINNO) return 4;
-    let i = 2;
-    if (formData?.nameEn || formData?.nameZh1 || formData?.nameZh2) i++;
-    if (formData?.profession) i++;
-    if (formData?.phone) i++;
-    if (formData?.tel1 || formData?.tel2) i++;
-    if (formData?.email) i++;
-    if (formData?.address) i++;
-    return i;
+    let pos = '';
+    let i = 0;
+    if (!!formData?.nameEn || !!formData?.nameZh1 || !!formData?.nameZh2) {
+      i++;
+      pos = 'name';
+    }
+    if (!!formData?.profession) {
+      i++;
+      pos = 'profession';
+    }
+    if (!!formData?.phone) {
+      i++;
+      pos = 'phone';
+    }
+    if (!!formData?.tel1 || !!formData?.tel2) {
+      i++;
+      pos = 'tel';
+    }
+    if (!!formData?.email) {
+      i++;
+      pos = 'email';
+    }
+    if (!!formData?.address) {
+      i++;
+      pos = 'address';
+    }
+
+    return {
+      rowSpan: i,
+      pos,
+    };
   }, [formData, tabKey]);
+
   return (
     <div
       style={{
@@ -888,7 +912,7 @@ const App = () => {
                           </td>
                           {tabKey === TAB_KEY.SINNO && lang === 'zh' && (
                             <td
-                              rowSpan={rowSpan}
+                              rowSpan={flag.rowSpan}
                               style={{ width: '210px', textAlign: 'center' }}
                             >
                               <img
@@ -900,7 +924,7 @@ const App = () => {
                           )}
                           {tabKey === TAB_KEY.SINNO && lang === 'en' && (
                             <td
-                              rowSpan={rowSpan}
+                              rowSpan={flag.rowSpan}
                               style={{ width: '210px', textAlign: 'center' }}
                             >
                               <img
@@ -920,7 +944,7 @@ const App = () => {
                                 verticalAlign: 'top',
                               }}
                               align="right"
-                              rowSpan={rowSpan}
+                              rowSpan={flag.rowSpan}
                             >
                               <img
                                 src={getImageUrl('/minnocos-zh.png')}
@@ -938,7 +962,7 @@ const App = () => {
                                 verticalAlign: 'top',
                               }}
                               align="right"
-                              rowSpan={rowSpan}
+                              rowSpan={flag.rowSpan}
                             >
                               <img
                                 src={getImageUrl('/minnocos-en.png')}
@@ -957,7 +981,7 @@ const App = () => {
                                 verticalAlign: 'top',
                               }}
                               align="right"
-                              rowSpan={rowSpan}
+                              rowSpan={flag.rowSpan}
                             >
                               <div>
                                 <img
@@ -970,7 +994,7 @@ const App = () => {
                           )}
                           {tabKey === TAB_KEY.VISION && lang === 'en' && (
                             <td
-                              rowSpan={rowSpan}
+                              rowSpan={flag.rowSpan}
                               style={{
                                 height: '100%',
                                 width: '210px',
@@ -1002,6 +1026,16 @@ const App = () => {
                                 {formData.profession}
                               </span>
                             </td>
+                            {tabKey !== TAB_KEY.SINNO &&
+                              flag.pos === 'profession' && (
+                                <td align="center">
+                                  <img
+                                    src={getImageUrl('/minnocos-footer-zh.png')}
+                                    width={82}
+                                    height={18}
+                                  />
+                                </td>
+                              )}
                           </tr>
                         )}
 
@@ -1040,6 +1074,16 @@ const App = () => {
                                 )}
                               </span>
                             </td>
+                            {tabKey !== TAB_KEY.SINNO &&
+                              flag.pos === 'phone' && (
+                                <td align="center">
+                                  <img
+                                    src={getImageUrl('/minnocos-footer-zh.png')}
+                                    width={82}
+                                    height={18}
+                                  />
+                                </td>
+                              )}
                           </tr>
                         )}
                         {formData?.tel1 && formData?.tel2 && (
@@ -1069,6 +1113,15 @@ const App = () => {
                                 &nbsp;+{formData?.tel1} {formData.tel2}
                               </span>
                             </td>
+                            {tabKey !== TAB_KEY.SINNO && flag.pos === 'tel' && (
+                              <td align="center">
+                                <img
+                                  src={getImageUrl('/minnocos-footer-zh.png')}
+                                  width={82}
+                                  height={18}
+                                />
+                              </td>
+                            )}
                           </tr>
                         )}
                         {formData?.email && (
@@ -1106,6 +1159,16 @@ const App = () => {
                                 </span>
                               </a>
                             </td>
+                            {tabKey !== TAB_KEY.SINNO &&
+                              flag.pos === 'email' && (
+                                <td align="center">
+                                  <img
+                                    src={getImageUrl('/minnocos-footer-zh.png')}
+                                    width={82}
+                                    height={18}
+                                  />
+                                </td>
+                              )}
                           </tr>
                         )}
                         <tr>
@@ -1167,18 +1230,16 @@ const App = () => {
                                 </a>
                               </div>
                             </td>
-                          </tr>
-                        )}
-                        {tabKey !== TAB_KEY.SINNO && (
-                          <tr style={{ top: '-20px', position: 'relative' }}>
-                            <td></td>
-                            <td align="center">
-                              <img
-                                src={getImageUrl('/minnocos-footer-zh.png')}
-                                width={82}
-                                height={18}
-                              />
-                            </td>
+                            {tabKey !== TAB_KEY.SINNO &&
+                              flag.pos === 'address' && (
+                                <td align="center">
+                                  <img
+                                    src={getImageUrl('/minnocos-footer-zh.png')}
+                                    width={82}
+                                    height={18}
+                                  />
+                                </td>
+                              )}
                           </tr>
                         )}
                       </tbody>
