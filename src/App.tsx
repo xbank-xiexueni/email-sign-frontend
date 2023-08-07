@@ -168,7 +168,7 @@ const App = () => {
   };
 
   const rowSpan = useMemo(() => {
-    if (tabKey !== TAB_KEY.SINNO) return 3;
+    // if (tabKey !== TAB_KEY.SINNO) return 4;
     let i = 2;
     if (formData?.nameEn || formData?.nameZh1 || formData?.nameZh2) i++;
     if (formData?.profession) i++;
@@ -792,6 +792,7 @@ const App = () => {
                     <table
                       style={{
                         padding: '12px',
+                        borderSpacing: 0,
                       }}
                     >
                       <tbody>
@@ -806,6 +807,7 @@ const App = () => {
                                       fontWeight: 800,
                                       color: '#333',
                                       fontFamily: 'AliPuHuiTi-2',
+                                      lineHeight: 1,
                                     }}
                                   >
                                     {formData.nameZh1}&nbsp;
@@ -818,6 +820,7 @@ const App = () => {
                                       fontWeight: 800,
                                       color: '#333',
                                       fontFamily: 'AliPuHuiTi-2',
+                                      lineHeight: 1,
                                     }}
                                   >
                                     {formData.nameZh2}
@@ -830,6 +833,7 @@ const App = () => {
                                       fontWeight: 400,
                                       fontFamily: 'AliPuHuiTi-2',
                                       color: '#333',
+                                      lineHeight: 1,
                                     }}
                                   >
                                     &nbsp;{formData.nameEn}
@@ -846,6 +850,7 @@ const App = () => {
                                       fontWeight: 800,
                                       color: '#333',
                                       fontFamily: 'AliPuHuiTi-2',
+                                      lineHeight: 1,
                                     }}
                                   >
                                     {formData.nameEn}&nbsp;
@@ -859,6 +864,7 @@ const App = () => {
                                       fontWeight: 400,
                                       color: '#333',
                                       fontFamily: 'AliPuHuiTi-2',
+                                      lineHeight: 1,
                                     }}
                                   >
                                     {formData.nameZh1}&nbsp;
@@ -871,6 +877,7 @@ const App = () => {
                                       fontWeight: 400,
                                       color: '#333',
                                       fontFamily: 'AliPuHuiTi-2',
+                                      lineHeight: 1,
                                     }}
                                   >
                                     {formData.nameZh2}
@@ -910,6 +917,7 @@ const App = () => {
                                 height: '100%',
                                 width: '210px',
                                 textAlign: 'center',
+                                verticalAlign: 'top',
                               }}
                               align="right"
                               rowSpan={rowSpan}
@@ -927,6 +935,7 @@ const App = () => {
                                 height: '100%',
                                 width: '210px',
                                 textAlign: 'center',
+                                verticalAlign: 'top',
                               }}
                               align="right"
                               rowSpan={rowSpan}
@@ -945,6 +954,7 @@ const App = () => {
                                 height: '100%',
                                 width: '210px',
                                 textAlign: 'center',
+                                verticalAlign: 'top',
                               }}
                               align="right"
                               rowSpan={rowSpan}
@@ -965,6 +975,7 @@ const App = () => {
                                 height: '100%',
                                 width: '210px',
                                 textAlign: 'center',
+                                verticalAlign: 'top',
                               }}
                               align="right"
                             >
@@ -975,9 +986,6 @@ const App = () => {
                               />
                             </td>
                           )}
-                        </tr>
-                        <tr>
-                          <td style={{ height: '24px' }}></td>
                         </tr>
 
                         {/* 2 */}
@@ -996,6 +1004,10 @@ const App = () => {
                             </td>
                           </tr>
                         )}
+
+                        <tr>
+                          <td style={{ height: '24px' }}></td>
+                        </tr>
 
                         {formData?.phone && (
                           <tr
@@ -1016,7 +1028,11 @@ const App = () => {
                                 )}
                                 width={6}
                               />
-                              <span>
+                              <span
+                                style={{
+                                  lineHeight: 1,
+                                }}
+                              >
                                 &nbsp;+86{' '}
                                 {formData?.phone?.replace(
                                   /^(.{3})(.*)(.{4})$/,
@@ -1045,7 +1061,11 @@ const App = () => {
                                 )}
                                 width={6}
                               />
-                              <span>
+                              <span
+                                style={{
+                                  lineHeight: 1,
+                                }}
+                              >
                                 &nbsp;+{formData?.tel1} {formData.tel2}
                               </span>
                             </td>
@@ -1077,7 +1097,13 @@ const App = () => {
                                   )}
                                   width={6}
                                 />
-                                <span>&nbsp;{formData?.email}</span>
+                                <span
+                                  style={{
+                                    lineHeight: 1,
+                                  }}
+                                >
+                                  &nbsp;{formData?.email}
+                                </span>
                               </a>
                             </td>
                           </tr>
@@ -1088,7 +1114,6 @@ const App = () => {
                         {formData?.address && (
                           <tr
                             style={{
-                              marginTop: '16px',
                               color: '#737373',
                             }}
                           >
@@ -1106,6 +1131,7 @@ const App = () => {
                                   wordBreak: 'break-word',
                                   transform: 'scale(0.916666)',
                                   transformOrigin: 'left top',
+                                  lineHeight: 1,
                                 }}
                               >
                                 {formData.address}
@@ -1122,6 +1148,7 @@ const App = () => {
                                     textDecoration: 'none',
                                     opacity: 0.7,
                                     fontFamily: 'AliPuHuiTi-2',
+                                    lineHeight: 1,
                                   }}
                                   target="_blank"
                                 >
@@ -1143,12 +1170,9 @@ const App = () => {
                           </tr>
                         )}
                         {tabKey !== TAB_KEY.SINNO && (
-                          <tr>
+                          <tr style={{ top: '-20px', position: 'relative' }}>
                             <td></td>
-                            <td
-                              align="center"
-                              style={{ top: '-20px', position: 'relative' }}
-                            >
+                            <td align="center">
                               <img
                                 src={getImageUrl('/minnocos-footer-zh.png')}
                                 width={82}
