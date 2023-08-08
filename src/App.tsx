@@ -38,8 +38,8 @@ const getHTMLStr = (body: string) => {
 const getImageUrl = (src: string) => {
   return `${
     import.meta.env.VITE_IMAGE_PREFIX ||
-    'https://email-sign-frontend.pages.dev/'
-    // window.location.origin
+    // 'https://email-sign-frontend.pages.dev/'
+    window.location.origin
   }${src}`;
 };
 const { Sider, Content } = Layout;
@@ -982,7 +982,6 @@ const App = () => {
                                 width: '150px',
                                 textAlign: 'center',
                                 verticalAlign: 'top',
-                                paddingTop: 10,
                               }}
                               align='right'
                               rowSpan={flag.rowSpan}
@@ -1004,7 +1003,6 @@ const App = () => {
                                 width: '150px',
                                 textAlign: 'center',
                                 verticalAlign: 'top',
-                                paddingTop: 10,
                               }}
                               align='right'
                             >
