@@ -979,7 +979,7 @@ const App = () => {
                             <td
                               style={{
                                 height: '100%',
-                                width: '190px',
+                                width: '150px',
                                 textAlign: 'center',
                                 verticalAlign: 'top',
                                 paddingTop: 10,
@@ -1001,7 +1001,7 @@ const App = () => {
                               rowSpan={flag.rowSpan}
                               style={{
                                 height: '100%',
-                                width: '190px',
+                                width: '150px',
                                 textAlign: 'center',
                                 verticalAlign: 'top',
                                 paddingTop: 10,
@@ -1187,8 +1187,7 @@ const App = () => {
                           >
                             <td
                               style={{
-                                width:
-                                  tabKey === TAB_KEY.VISION ? '200px' : '250px',
+                                width: '250px',
                               }}
                             >
                               <span
