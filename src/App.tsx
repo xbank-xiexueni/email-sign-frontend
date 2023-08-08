@@ -1252,7 +1252,7 @@ const App = () => {
                     {formData?.privacy && (
                       <table style={{ marginTop: '-4px' }}>
                         <tr>
-                          <th
+                          <td
                             style={{
                               textAlign: 'initial',
                               width:
@@ -1267,7 +1267,6 @@ const App = () => {
                               borderWidth: 1,
                               borderStyle: 'solid',
                               // height: '70%',
-                              fontFamily: 'AliPuHuiTi-2',
                             }}
                           >
                             <div
@@ -1276,6 +1275,7 @@ const App = () => {
                                 transformOrigin: 'left top',
                                 // width: '142%',
                                 zoom: 0.7,
+                                fontFamily: 'AliPuHuiTi-2',
                               }}
                             >
                               <div style={{ fontWeight: 600 }}>保密声明：</div>
@@ -1288,6 +1288,7 @@ const App = () => {
                                 // width: '142%',
                                 marginTop: '10px',
                                 zoom: 0.7,
+                                fontFamily: 'AliPuHuiTi-2',
                               }}
                             >
                               <div style={{ fontWeight: 600 }}>
@@ -1295,7 +1296,7 @@ const App = () => {
                               </div>
                               {PRIVACTY_DATA['en']}
                             </div>
-                          </th>
+                          </td>
                         </tr>
                       </table>
                     )}
