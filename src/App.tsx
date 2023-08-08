@@ -943,6 +943,7 @@ const App = () => {
                                 width: '210px',
                                 textAlign: 'center',
                                 verticalAlign: 'top',
+                                paddingTop: 10,
                               }}
                               align='right'
                               rowSpan={flag.rowSpan}
@@ -961,6 +962,7 @@ const App = () => {
                                 width: '210px',
                                 textAlign: 'center',
                                 verticalAlign: 'top',
+                                paddingTop: 10,
                               }}
                               align='right'
                               rowSpan={flag.rowSpan}
@@ -980,6 +982,7 @@ const App = () => {
                                 width: '190px',
                                 textAlign: 'center',
                                 verticalAlign: 'top',
+                                paddingTop: 10,
                               }}
                               align='right'
                               rowSpan={flag.rowSpan}
@@ -1001,6 +1004,7 @@ const App = () => {
                                 width: '190px',
                                 textAlign: 'center',
                                 verticalAlign: 'top',
+                                paddingTop: 10,
                               }}
                               align='right'
                             >
