@@ -1018,7 +1018,11 @@ const App = () => {
                         {/* 2 */}
                         {formData?.profession && (
                           <tr>
-                            <td style={{ paddingTop: '2px' }}>
+                            <td
+                              style={{
+                                paddingTop: lang === 'en' ? '1px' : '2px',
+                              }}
+                            >
                               <span
                                 style={{
                                   fontSize: lang === 'zh' ? '14px' : '12px',
