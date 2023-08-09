@@ -1018,12 +1018,13 @@ const App = () => {
                         {/* 2 */}
                         {formData?.profession && (
                           <tr>
-                            <td>
+                            <td style={{ paddingTop: '2px' }}>
                               <span
                                 style={{
-                                  fontSize: '14px',
+                                  fontSize: lang === 'zh' ? '14px' : '12px',
                                   color: '#737373',
                                   fontFamily: 'AliPuHuiTi-2',
+                                  opacity: 0.7,
                                 }}
                               >
                                 {formData.profession}
